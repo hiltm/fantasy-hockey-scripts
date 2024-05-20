@@ -1,12 +1,14 @@
+#TODO expand to all teams
+#TODO record fantasy drafted percentages
+#TODO figure out why saving duplicate lines
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
 def get_all_players(base_url, players_list_url):
     players = []
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
-    }
+    headers = {}
     response = requests.get(players_list_url, headers=headers)
     if response.status_code != 200:
         print(f"Failed to retrieve page with status code {response.status_code}")
